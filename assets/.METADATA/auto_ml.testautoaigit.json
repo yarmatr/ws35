@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "name": "test auto ai git",
+    "asset_type": "auto_ml",
+    "origin_country": "us",
+    "tags": [],
+    "asset_category": "USER",
+    "created_at": "2022-06-20T14:15:38Z",
+    "created": 1655734538168,
+    "asset_id": "auto_ml.testautoaigit",
+    "asset_attributes": [
+      "auto_ml"
+    ]
+  },
+  "entity": {
+    "auto_ml": {
+      "wml": {
+        "service_instance_id": "99999999-9999-9999-9999-999999999999",
+        "plan_version": 2,
+        "cpd_version": "4.5",
+        "pipeline": {
+          "entity": {
+            "document": {
+              "doc_type": "pipeline",
+              "pipelines": [
+                {
+                  "id": "autoai",
+                  "nodes": [
+                    {
+                      "id": "automl",
+                      "op": "kube",
+                      "parameters": {
+                        "output_logs": true,
+                        "input_file_separator": ",",
+                        "stage_flag": true,
+                        "optimization": {
+                          "compute_pipeline_notebooks_flag": true,
+                          "cv_num_folds": 3,
+                          "daub_adaptive_subsampling_max_mem_usage": 9000000000,
+                          "holdout_param": 0.1,
+                          "label": "PRODUCT_LINE",
+                          "learning_type": "classification",
+                          "max_num_daub_ensembles": 2,
+                          "run_cognito_flag": true,
+                          "scorer_for_ranking": "accuracy"
+                        },
+                        "n_parallel_data_connections": 4,
+                        "one_vs_all_file": true
+                      },
+                      "runtime_ref": "autoai",
+                      "type": "execution_node"
+                    }
+                  ],
+                  "runtime_ref": "hybrid"
+                }
+              ],
+              "primary_pipeline": "autoai",
+              "runtimes": [
+                {
+                  "app_data": {
+                    "wml_data": {
+                      "hardware_spec": {
+                        "id": "c076e82c-b2a7-4d20-9c0f-1f0c2fdf5a24",
+                        "name": "M"
+                      }
+                    }
+                  },
+                  "id": "autoai",
+                  "name": "auto_ai.kb"
+                }
+              ],
+              "version": "2.0"
+            }
+          },
+          "metadata": {
+            "created_at": "2022-06-20T14:16:16.842Z",
+            "id": "wml_pipeline.testautoaigit",
+            "modified_at": "2022-06-20T14:16:16.849Z",
+            "name": "test auto ai git",
+            "owner": "1000330999",
+            "project_id": "6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0",
+            "tags": [
+              "dsx-project.6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0"
+            ]
+          },
+          "system": {
+            "warnings": []
+          }
+        },
+        "training_definition": {
+          "metadata": {
+            "created_at": "2022-06-20T14:16:16.923Z",
+            "id": "d97fb7bd-2cf6-4f67-9a9d-d53afc5f5e30",
+            "project_id": "6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0",
+            "tags": [
+              "dsx-project.6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0"
+            ]
+          },
+          "entity": {
+            "pipeline": {
+              "data_bindings": [
+                {
+                  "data_reference_name": "training_input_data",
+                  "node_id": "training"
+                }
+              ],
+              "id": "wml_pipeline.testautoaigit",
+              "nodes_parameters": [
+                {
+                  "node_id": "training",
+                  "parameters": {}
+                }
+              ]
+            },
+            "project_id": "6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0",
+            "results_reference": {
+              "location": {
+                "path": "/projects/6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0/assets/auto_ml/auto_ml.testautoaigit/wml_data",
+                "notebooks_path": "/projects/6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0/assets/auto_ml/auto_ml.testautoaigit/wml_data/d97fb7bd-2cf6-4f67-9a9d-d53afc5f5e30/notebooks",
+                "training": "/projects/6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0/assets/auto_ml/auto_ml.testautoaigit/wml_data/d97fb7bd-2cf6-4f67-9a9d-d53afc5f5e30",
+                "training_status": "/projects/6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0/assets/auto_ml/auto_ml.testautoaigit/wml_data/d97fb7bd-2cf6-4f67-9a9d-d53afc5f5e30/training-status.json",
+                "assets_path": "/projects/6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0/assets/auto_ml/auto_ml.testautoaigit/wml_data/d97fb7bd-2cf6-4f67-9a9d-d53afc5f5e30/assets"
+              },
+              "type": "fs"
+            },
+            "tags": [
+              "dsx-project.6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0"
+            ],
+            "test_data_references": [],
+            "training_data_references": [
+              {
+                "connection": {},
+                "id": "go_sales.csv",
+                "location": {
+                  "href": "/userfs/v2/assets/data_asset.gosalescsv?project_id=6cd8bb7a-eb76-4d94-b78a-2b9d878cf8e0",
+                  "id": "data_asset.gosalescsv",
+                  "userfs": "true"
+                },
+                "type": "data_asset"
+              }
+            ]
+          }
+        }
+      },
+      "status": "completed",
+      "learning_type": "multiclass"
+    }
+  },
+  "attachments": [
+    {
+      "asset_type": "auto_ml",
+      "name": "config",
+      "description": "config attachment for auto_ml asset auto_ml.testautoaigit",
+      "object_key": "auto_ml/auto_ml.testautoaigit/attachments/config_auto_ml.testautoaigit",
+      "object_key_is_read_only": true,
+      "created_at": "2022-06-20T14:15:38Z",
+      "id": "cd60914d-3132-4c12-a723-f552ca21dbc6",
+      "is_managed": false,
+      "is_referenced": true,
+      "is_remote": false
+    },
+    {
+      "asset_type": "auto_ml",
+      "name": "referenced",
+      "description": "referenced attachment for auto_ml asset auto_ml.testautoaigit",
+      "object_key": "auto_ml/auto_ml.testautoaigit/attachments/referenced_auto_ml.testautoaigit",
+      "object_key_is_read_only": true,
+      "created_at": "2022-06-20T14:15:38Z",
+      "id": "3f4ce5ec-0d70-4b10-8f2e-7ea69fba36e7",
+      "is_managed": false,
+      "is_referenced": true,
+      "is_remote": false
+    }
+  ]
+}
